@@ -25,7 +25,7 @@ const SearchBar = ({ data }) => {
         className="w-full h-full outline-none text-gray-500 px-2"/>
       <button
         type="submit"
-        className="bg-blue-600 rounded-md text-white md:px-10 px-7 md:py-3 py-2 h-full hover:bg-blue-700 ">
+        className="bg-green-600 rounded-md text-white md:px-10 px-7 md:py-3 py-2 h-full hover:bg-green-700 ">
         Search
       </button>
     </form>

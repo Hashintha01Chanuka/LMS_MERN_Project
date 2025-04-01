@@ -24,8 +24,8 @@ const CourseCard = ({ course }) => {
             ))}     
           </div>    
           
-          {/**star is not according to the assets.js some problam*/}
-          <p className="text-gray-500">{course.courseRatings.length}</p>
+          
+          <p className="text-gray-500">({course.courseRatings.length})</p>
         </div>
         <p className="text-base font-semibold text-gray-800">
           {currency}
