@@ -1,4 +1,4 @@
-import { clerkClient, User } from '@clerk/express'
+import { clerkClient } from '@clerk/express'
 import { v2 as cloudinary } from 'cloudinary'
 import Course from '../models/Course.js'
 import { Purchase } from '../models/Purchase.js'
