@@ -12,6 +12,7 @@ import Dashboard from './pages/educator/Dashboard';
 import AddCourse from './pages/educator/AddCourse';
 import MyCourse from './pages/educator/MyCourse';
 import StudentsEnrolled from './pages/educator/StudentsEnrolled';
+import "quill/dist/quill.snow.css";
 
 
 const App = () => {

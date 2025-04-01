@@ -1,11 +1,39 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
-const rating = () => {
+const Rating = ({initialRating, onRate}) => {
+
+  const [rating, SetRating] = useState(initialRating || 0)
+
+  const handleRating = (value) => {
+    SetRating(value);
+    if(onRate) onRate(value)
+  }
+
+  useEffect(()=>{
+    if(initialRating){
+      SetRating(initialRating)
+    }
+
+  },[initialRating])
+
   return (
     <div>
-      <h1>rating</h1>
+      {Array.from({length: 5}, (_,index)=>{
+        const starValue = index + 1;
+        return (
+          <span key={index} className={`text-xl sm:text-2xl 
+          cursor-pointer transition-colors ${starValue <= rating ? 'text-yellow-500' : 'text-gray-400'}`}
+           onClick={()=> handleRating(starValue)}>
+           
+            &#9733;
+          </span>
+        )
+      })}
+
+
+      
     </div>
   )
 }
 
-export default rating
+export default Rating
