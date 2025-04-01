@@ -1,33 +1,44 @@
 import React from 'react'
 import { assets } from '../../assets/assets'
 import SearchBar from './SearchBar'
+import bg2 from '../../assets/bg2.png'
+
+
 
 const Hero = () => {
   return (
-    <div className='flex flex-col items-center justify-center w-full md:pt-30 pt-20
+    <div className='flex flex-col items-center  justify-center w-full md:pt-30 pt-9
     px-7 md:px-0 space-y-5 text-center bg-gradient-to-b from-cyan-100/70'>
-  
-  <h1 className='md:text-home-heading-large text-home-heading-small relative font-bold 
-      text-gray-800 max-w-3xl mx-auto'>
-    Empower your future with the courses designed to 
-    <span className='text-blue-600'> fit your choice.</span> 
-    
-    {/* Fixed Image Position */}
-    <img src={assets.sketch} alt="sketch" 
-      className='md:block hidden absolute bottom-[-10px] right-0 w-20 md:w-28'/> 
-  </h1>
 
-  <p className='md:block hidden text-gray-500 max-w-2xl mx-auto'>
-    We bring together world-class instructors, interactive content, and a supportive
-    community to help you achieve your personal and professional goals.
-  </p>
+      <div className="flex flex-col md:flex-row items-center justify-between px-8 md:px-16 py-12">
+        {/* Left Side - Text */}
+        <div className="w-full md:w-1/2 space-y-6">
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
+            The Best Online <br />
+            <span className="text-green-600">Education Platform</span>
+          </h1>
+          <p className="text-gray-600 text-lg max-w-lg">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam est sem,
+            faucibus non purus non, placerat tempor dolor.
+          </p>
 
-  <p className='md:hidden text-gray-500 max-w-sm mx-auto'>
-    We bring together world-class instructors to help you achieve your professional goals.
-  </p>
+        </div>
 
-  <SearchBar />
-</div>
+        {/* Right Side - Illustration */}
+        <div className="w-full md:w-1/2 flex justify-center items-center relative">
+          <img src={bg2} alt="Students Learning" className="w-full max-w-lg" />
+        </div>
+      </div>
+
+
+
+
+
+      <div className="h-11"></div>
+      <SearchBar />
+    </div>
+
+
 
   )
 }
