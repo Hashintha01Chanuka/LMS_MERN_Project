@@ -22,7 +22,7 @@ const AddCourse = () => {
   const [lectureDetails, setLectureDetails] = useState(
     {
       lectureTitle: '',
-      lectureDuraion: '',
+      lectureDuration: '',
       lectureUrl: '',
       isPreviewFree: false,
     }
@@ -77,7 +77,7 @@ const AddCourse = () => {
           const newLecture = {
             ...lectureDetails,
             lectureOrder: chapter.chapterContent.length > 0 ? chapter.chapterContent.slice(-1)[0].lectureOrder + 1 : 1,
-            letureId: uniqid()
+            lectureId: uniqid()
           };
           chapter.chapterContent.push(newLecture);
         }
@@ -89,7 +89,7 @@ const AddCourse = () => {
     setShowPopup(false);
     setLectureDetails({
       lectureTitle: '',
-      lectureDuraion: '',
+      lectureDuration: '',
       lectureUrl: '',
       isPreviewFree: false,
 
@@ -98,7 +98,7 @@ const AddCourse = () => {
 
   const handleSubmit = async (e) => {
     try {
-      e.PreventDefault()
+      e.preventDefault()
       if (!image) {
         toast.error('Thumbnail Not Selected')
       }
@@ -174,7 +174,7 @@ const AddCourse = () => {
             <label htmlFor='thumbnailImage' className='flex items-center gap-3'>
               <img src={assets.file_upload_icon} alt="" className='p-3 bg-green-600 rounded' />
               <input type="file" id='thumbnailImage' onChange={e => setImage(e.target.files[0])} accept="image/*" hidden />
-              <img className='max-h-10' src={image ? URL.createObjectURL(image) : ''} alt="" />
+              <img className='max-h-10' src={image ? URL.createObjectURL(image) : null} alt="" />
 
             </label>
           </div>
@@ -254,8 +254,8 @@ const AddCourse = () => {
                   <input
                     type="number"
                     className='mt-1 block w-full border rounded py-1 px-2'
-                    value={lectureDetails.lectureDuraion}
-                    onChange={(e) => setLectureDetails({ ...lectureDetails, lectureDuraion: e.target.value })}
+                    value={lectureDetails.lectureDuration}
+                    onChange={(e) => setLectureDetails({ ...lectureDetails, lectureDuration: e.target.value })}
                   />
                 </div>
 

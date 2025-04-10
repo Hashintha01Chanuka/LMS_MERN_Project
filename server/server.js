@@ -14,7 +14,7 @@ const app = express()
 
 //Connect to database
 await connectDB()
-await connectCloudinary
+await connectCloudinary()
 
 //Middleware
 app.use(cors())
