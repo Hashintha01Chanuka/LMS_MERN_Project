@@ -14,10 +14,14 @@ export const getAllCourse = async(req, res)=>{
 
 //Get Course by Id
 export const getCourseId = async (req, res)=>{
-    const {id} = req.params
+    const {id} = req.params;
 
     try {
        const courseData = await Course.findById(id).populate({path:'educator'})
+
+       if (!courseData) {
+        return res.json({ success: false, message: 'Course not found' });
+      }
 
        //Remove lectureUrl ifPreviewFree is false
        courseData.courseContent.forEach(chapter => {
