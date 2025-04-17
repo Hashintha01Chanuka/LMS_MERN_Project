@@ -4,6 +4,7 @@ import Stripe from "stripe";
 import Course from "../models/Course.js";
 import { CourseProgress } from "../models/CourseProgress.js";
 
+
 //Get User Data
 export const getUserData = async (req, res) => {
     try {
@@ -35,7 +36,8 @@ export const userEnrolledCourses = async (req, res) => {
 //Purchase Course
 export const purchaseCourse = async (req, res) => {
     try {
-        const { courseId } = req.body
+        const { courseId } = req.body;
+
         const { origin } = req.headers
         const userId = req.auth.userId
         const userData = await User.findById(userId)

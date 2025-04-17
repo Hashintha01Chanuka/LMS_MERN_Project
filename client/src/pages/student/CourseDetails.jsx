@@ -36,38 +36,47 @@ const CourseDetails = () => {
     }
   }
 
-  const enrollCourse = async ()=>{
+  const enrollCourse = async () => {
     try {
+      
       if (!userData) {
         return toast.warn('Login to Enroll')
       }
       if (isAlreadyEnrolled) {
         return toast.warn('Already Enrolled')
       }
+      if (!courseData || !courseData._id) {
+        return toast.error('Course data is not available. Please try again later.');
+      }
+
       const token = await getToken();
 
-      const { data } = await axios.post(backendUrl + '/api/user/purchase',{courseId:courseData._id},{headers:{Authorization:`Bearer ${token}`}});
+      console.log("Course ID being sent for enrollment:", courseData._id);
+
+
+      const { data } = await axios.post(backendUrl + '/api/user/purchase', { courseId: courseData._id }, { headers: { Authorization: `Bearer ${token}` } });
 
       if (data.success) {
-          const {session_url} = data
-          window.location.replace(session_url)
-      }else{
-          toast.error(data.message)
+        const { session_url } = data
+        window.location.replace(session_url)
+      } else {
+        toast.error(data.message)
       }
     } catch (error) {
       toast.error(error.message)
     }
   }
 
-  
+
 
   useEffect(() => {
     fetchCourseData()
-  }, [allCourses])
-  
+  }, [])
+
   useEffect(() => {
     if (userData && courseData) {
       setIsAlreadyEnrolled(userData.enrolledCourses.includes(courseData._id))
+      console.log('Fetched courseData:', courseData);
     }
   }, [userData, courseData])
 
